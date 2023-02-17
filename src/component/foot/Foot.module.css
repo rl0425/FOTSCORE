@@ -1,0 +1,18 @@
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #123283;
+}
+
+.contents{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: 100%;
+    color: #ffffff;
+    font-size: 14px;
+}

@@ -1,0 +1,61 @@
+.gameBox{
+    margin-bottom: 12px;
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 12px;
+    /*padding: 0 16px;*/
+    min-height: 60px;
+    background: #1C1B1B;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.teamLogo{
+    width: 30px;
+    height: 30px;
+}
+
+.detail{
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+
+.detail img{
+    width: 12px;
+    height: 6px;
+}
+
+.detailDiv{
+    font-size: 12px;
+}
+
+.detailBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+}
+
+.detailBox img{
+    width: 17px;
+    height: 17px;
+}
+
+.detailBox > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 33%;
+
+}

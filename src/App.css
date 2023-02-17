@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "eng_bold";
+    src: url("./fonts/eng_bold_ttf");
+}
+
+body {
+    padding:
+            calc(env(safe-area-inset-top) + 15px)
+            calc(env(safe-area-inset-right) + 15px)
+            calc(env(safe-area-inset-bottom) + 15px)
+            calc(env(safe-area-inset-left) + 15px);
+}
