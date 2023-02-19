@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Football.iml" filepath="$PROJECT_DIR$/Football.iml" />
       <module fileurl="file://$PROJECT_DIR$/../soccer.iml" filepath="$PROJECT_DIR$/../soccer.iml" />
     </modules>
   </component>

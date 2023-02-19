@@ -21,7 +21,7 @@ function DetailGame(props) {
                 tmp.push({
                     teamName: item.team.id === team[0].id ? "left" : "right",
                     type: item.redCard ? "red_card" : item.yellowCard ? "yellow_card" : item.scoreValue ? "goal" : "none",
-                    player: item.athletesInvolved[0].shortName,
+                    player: item.athletesInvolved ? item.athletesInvolved[0].shortName : "none",
                     clock: item.clock.displayValue
                 })
             })

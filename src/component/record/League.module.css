@@ -1,10 +1,15 @@
+.leagueBox{
+    position: relative;
+    margin-bottom: 34px;
+}
+
 .box{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    min-height: 60px;
     height: 6%;
-    margin-bottom: 24px;
     background-color: #123283;
 }
 
@@ -14,7 +19,7 @@
     margin-left: 24px;
 }
 
-.box .arrow{
+.box .noArrow{
     width: 20px;
     height: 20px;
     margin-right: 24px;
@@ -23,5 +28,72 @@
     transform: rotate( 90deg);
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../../../public/image/arrow.png")
+    background-image: url("../../../public/image/arrow.png");
+    transition: all 0.15s linear;
+}
+
+.box .arrow{
+    width: 20px;
+    height: 20px;
+    margin-right: 24px;
+    cursor: pointer;
+    background-size: 21px 12px;
+    /*transform: rotate( 90deg);*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../../public/image/arrow.png");
+    transition: all 0.15s linear;
+
+}
+
+.selectBox{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    max-height: 100vw;
+    background: #1C1B1B;
+    /*transition: background-color, 0.1s linear;*/
+    transition: height, 0.1s linear;
+    transition: opacity, 0.3s linear;
+    opacity: 1;
+}
+
+.selectBox > div{
+    margin-bottom: 8px;
+}
+
+.selectBox img{
+    transition: all 0.3s ease-in-out 0.2s;
+    opacity: 1;
+    width: 132px;
+    margin-left: 24px;
+}
+
+.selectBox .lagliga{
+    background: #1C1B1B;
+}
+
+.selectBox .bundesliga{
+    margin-left: 2px;
+}
+
+.selectBox .bundesliga img{
+    width: 160px;
+    background: #1C1B1B;
+}
+
+.noSelect{
+    max-height: 0;
+}
+
+.noSelect div{
+    opacity: 0;
+    height: 0;
+}
+
+.noSelect img{
+    opacity: 0;
+    height: 0;
+    margin-left: 24px;
 }

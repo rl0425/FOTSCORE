@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
 import Game from "./Game";
 import moment from "moment";
 
@@ -6,12 +7,16 @@ function Contents(){
     const [data, setData ] = useState([])
     const [times, setTime ] = useState([])
 
+    let league = useSelector((state) => state.league.link);
+
     const getData = async () => {
         // const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams').then((res) => res.json());
         const dateForm = 20230211
         // const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?&dates=${dateForm}-${dateForm+1}`).then((res) => res.json());
-        const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?&dates=20230211-20230216`).then((res) => res.json());
+        const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${league}/scoreboard?&dates=20230211-20230216`).then((res) => res.json());
 
+
+        console.log("league = ", league)
         console.log("res = ", res)
 
         const event = res.events.filter((data) =>{
@@ -44,7 +49,7 @@ function Contents(){
 
     useEffect(() => {
         getData();
-    }, []);
+    }, [league]);
 
     return (
         <div style={{color:"white"}}>
