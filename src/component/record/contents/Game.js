@@ -1,5 +1,6 @@
 import DetailGame from "./DetailGame";
 import classes from "./Game.module.css"
+import { v4 as uuidv4 } from 'uuid';
 
 function Game(props){
     console.log("props = ", props.times)
@@ -19,7 +20,7 @@ function Game(props){
                                     + propsDate.getMinutes() : propsDate.getMinutes())
 
                                 if (time === propsTime) {
-                                    return <DetailGame datas={data} key={data.id}/>
+                                    return <DetailGame datas={data} key={uuidv4()}/>
                                 } else {
                                     return
                                 }
