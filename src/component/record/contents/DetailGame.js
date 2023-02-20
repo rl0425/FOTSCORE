@@ -8,10 +8,24 @@ function DetailGame(props) {
 
     const [detail, setDetail] = useState([])
     const [clicked, setClicked] = useState(false);
+    const [animation, setAnimation] = useState(false);
 
     const handleClick = () => {
         setClicked(!clicked);
     };
+
+    const summaryClick = () => {
+        console.log("data.links[0] =", data.links[0])
+        window.open(data.links[0].href, '_blank')
+    }
+
+    const highlightClick = () => {
+        window.open(data.links[1].href, '_blank')
+    }
+
+    const statClick = () => {
+        window.open(data.links[2].href, '_blank')
+    }
 
     function getDetails(){
         if(data.competitions[0].details) {
@@ -29,15 +43,17 @@ function DetailGame(props) {
         }
     }
 
-
-
     useEffect( () => {
         getDetails()
+        setTimeout(() => {
+            setAnimation(true)
+        }, 100 * (props.index + 1) )
+
     },[])
 
     return (
         <div className={clicked ? classes.gameBox : classes.gameBoxNone}>
-            <div key={data.id} className={classes.box}>
+            <div key={data.id} className={!animation ? classes.box : `${classes.box} ${classes.boxAnimated}`}>
                 <div className={classes.content} style={{width: "33%", justifyContent: "flex-start"}}>
                     <img className={classes.teamLogo} src={team[0].team.logo} style={{paddingLeft: "16px"}}/>
                     <span className={team[0].winner ? classes.winner : team[1].winner ? classes.loser : classes.draw} style={{marginLeft: "4px" , textAlign: "left"}}>{team[0].team.shortDisplayName}</span>
@@ -71,9 +87,9 @@ function DetailGame(props) {
                 })}
                 </div>
                 <div className={classes.summaryLinkBox}>
-                    <div className={classes.summary} style={{justifyContent: "flex-start", paddingLeft: "24px"}}>경기 요약</div>
-                    <div className={classes.summary}>하이라이트</div>
-                    <div className={classes.summary} style={{justifyContent: "flex-end", paddingRight: "24px"}}>매치 스탯</div>
+                    <div onClick={summaryClick} style={{justifyContent: "flex-start", paddingLeft: "24px"}}>경기 요약</div>
+                    {data.links[1].text === "Highlights" ? <div onClick={highlightClick}>하이라이트</div> : ""}
+                    <div onClick={statClick}style={{justifyContent: "flex-end", paddingRight: "24px"}}>매치 스탯</div>
                 </div>
             </div>
         </div>

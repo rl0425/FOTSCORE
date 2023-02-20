@@ -17,9 +17,15 @@
     color: #ffffff;
     font-size: 16px;
     margin-right: 4px;
+    transition: all 0.3s linear;
 }
 
 .box .schedule{
     width: 14px;
     height: 14px;
+}
+
+.box .choice{
+    color: #0098fe;
+    transition: all 0.3s linear;
 }

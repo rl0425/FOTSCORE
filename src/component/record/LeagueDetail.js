@@ -1,19 +1,19 @@
 import classes from "./League.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {leagueActions} from "../../store/league-slice"
+import moment from "moment";
 
 function LeagueDetail(props){
     const dispatch = useDispatch();
-    let league = useSelector((state) => state.league.league);
 
     function leagueClick(){
         props.onCilck(props.league)
-        dispatch(leagueActions.changeLeague(props.link));
+        dispatch(leagueActions.changeSet({link:props.link, date:moment(new Date()), choiceDate:"today"}))
     }
 
     return (
-        <div onClick={leagueClick} className={classes.img} style={ props.league === "bundesliga" ? {marginLeft:"4px"} : {marginLeft:"0px"}}>
-            <img src={`/image/${props.league}.png`}/>
+        <div onClick={leagueClick} className={classes.img}>
+            <img src={`/image/${props.league}.png`} className={ props.league === "bundesliga" ? classes.selectBundes : ""}/>
         </div>
     )
 }

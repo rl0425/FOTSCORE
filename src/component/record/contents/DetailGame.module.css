@@ -13,12 +13,36 @@
 .box{
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 0;
     margin-bottom: 12px;
     /*padding: 0 16px;*/
     min-height: 60px;
     background: #1C1B1B;
     z-index: 10;
+    transition: width 0.2s linear;
+    opacity: 1;
+}
+
+.box div,
+.box span,
+.box img{
+    width: 0;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.boxAnimated{
+    display: flex;
+    width: 100%;
+    opacity: 1;
+}
+
+
+.boxAnimated div,
+.boxAnimated span,
+.boxAnimated img{
+    width: auto;
+    opacity: 1;
 }
 
 .content{

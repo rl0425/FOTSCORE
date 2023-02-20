@@ -18,16 +18,14 @@ function League(props){
             return data !== parameter
         })
 
-        console.log("temp = ", temp)
         setList(temp)
         setSelectLeague(parameter)
-
     }
 
     return (
         <div className={classes.leagueBox}>
-            <div onClick={menuClickEvt} className={classes.box}>
-                <div className={classes.img}><img src={`/image/${selectLeague}.png`}/></div>
+            <div onClick={menuClickEvt} className={`${classes.box} ${selectLeague === "premier" ? classes.premier : selectLeague === "laliga" ? classes.laliga : selectLeague === "bundesliga" ? classes.bundesliga : classes.seriea}`}>
+                <div className={classes.selected}><img src={`/image/${selectLeague}.png`}/></div>
                 <div className={click ? classes.arrow : classes.noArrow}></div>
             </div>
             <div className={click ? classes.selectBox : classes.noSelect}>

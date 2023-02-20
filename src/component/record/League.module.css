@@ -3,6 +3,27 @@
     margin-bottom: 34px;
 }
 
+.leagueBox .premier{
+    background-color: #df176ad1;
+}
+.leagueBox .laliga{
+    background-color: #e3ce38bf;
+}
+.leagueBox .bundesliga{
+    background-color: #ff000078;
+}
+.leagueBox .seriea{
+    background-color: #0389fbbd;
+}
+
+.premier,
+.laliga,
+.bundesliga,
+.seriea{
+    transition: all 0.4s linear;
+}
+
+
 .box{
     display: flex;
     align-items: center;
@@ -13,9 +34,14 @@
     background-color: #123283;
 }
 
+.box .selected{
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+}
+
 .box img{
     width: 132px;
-    height: 100%;
     margin-left: 24px;
 }
 
@@ -60,22 +86,20 @@
 }
 
 .selectBox > div{
-    margin-bottom: 8px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .selectBox img{
     transition: all 0.3s ease-in-out 0.2s;
     opacity: 1;
     width: 132px;
-    margin-left: 24px;
 }
 
 .selectBox .lagliga{
     background: #1C1B1B;
-}
-
-.selectBox .bundesliga{
-    margin-left: 2px;
 }
 
 .selectBox .bundesliga img{
@@ -96,4 +120,9 @@
     opacity: 0;
     height: 0;
     margin-left: 24px;
+}
+
+.selectBundes{
+    width: 146px;
+    margin-left: 12px;
 }

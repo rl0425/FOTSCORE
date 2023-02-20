@@ -1,34 +1,35 @@
 import {useEffect, useState} from "react";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import Game from "./Game";
 import moment from "moment";
+import classes from "./Contents.module.css"
+import {leagueActions} from "../../../store/league-slice";
 
 function Contents(){
     const [data, setData ] = useState([])
     const [times, setTime ] = useState([])
 
-    let league = useSelector((state) => state.league.link);
+    const league = useSelector((state) => state.league.link);
+    const loading = useSelector((state) => state.league.loading);
+    const date = useSelector((state) => state.league.date);
+
+    const dispatch = useDispatch();
 
     const getData = async () => {
-        // const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams').then((res) => res.json());
-        const dateForm = 20230211
-        // const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?&dates=${dateForm}-${dateForm+1}`).then((res) => res.json());
-        const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${league}/scoreboard?&dates=20230211-20230216`).then((res) => res.json());
-
-
-        console.log("league = ", league)
-        console.log("res = ", res)
+        const dateForm = parseInt(moment(new Date()).subtract("d",2).format("YYYYMMDD"))
+        const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${league}/scoreboard?&dates=${dateForm}-${dateForm+2}`).then((res) => res.json());
 
         const event = res.events.filter((data) =>{
-            let temp = new Date('2023-02-12');
-            return data
-            // if(new Date(temp).getDate() === new Date(data.date).getDate()) {
-            //     return data
-            // }
+            if(new Date(date).getDate() === new Date(data.date).getDate()) {
+                return data
+            }
         })
+
+        console.log("event= ", event)
 
         setData(event)
         getTime(event)
+        dispatch(leagueActions.changeLoading());
     }
 
     const getTime = (evt) => {
@@ -49,11 +50,11 @@ function Contents(){
 
     useEffect(() => {
         getData();
-    }, [league]);
+    }, [league, date]);
 
     return (
-        <div style={{color:"white"}}>
-            {times.length > 0 ? <Game datas={data} times={times}/> : ""}
+        <div style={{color:"white", height:"100%"}}>
+            {!loading ? <Game datas={data} times={times}/> : <div className={classes.loading}><img src={"/image/loading.gif"}/></div>}
         </div>
     )
 }
