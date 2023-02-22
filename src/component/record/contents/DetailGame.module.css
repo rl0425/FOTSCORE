@@ -84,8 +84,7 @@
     font-size: 12px;
     max-height: 300vw;
     opacity: 1;
-    /*overflow: hidden;*/
-    transition: all 0.6s linear;
+    transition: all 0.4s linear;
 }
 
 .detailDivNone{
@@ -112,9 +111,10 @@
     justify-content: center;
     box-sizing: border-box;
     width: 33%;
-
 }
 
+.detailDivNone span,
+.detailDivNone img,
 .detailDivNone div{
     height: 0;
 }

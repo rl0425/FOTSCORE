@@ -1,0 +1,51 @@
+import {useEffect, useState} from "react";
+import NewsCont from "./contents/NewsCont";
+import {v4 as uuidv4} from "uuid";
+import Article from "./Article";
+import classes from "./News.module.css"
+
+function News(){
+
+    const [article, setArticle] = useState([])
+    async function getNews(){
+        const epl = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/news').then((res) => res.json())
+        const esp = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/news').then((res) => res.json())
+        const ger = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/news').then((res) => res.json())
+        const ita = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/news').then((res) => res.json())
+        // const asd = await fetch(epl.articles[0].links.api.news.href).then((res) => res.json())
+
+        setArticle(dataStructure([...epl.articles , ...esp.articles, ...ger.articles, ...ita.articles]))
+    }
+
+    function dataStructure(data){
+        const sorted = data.sort((a,b) => new Date(b.lastModified) - new Date(a.lastModified))
+        const result = []
+
+        sorted.map((bEle) =>{
+            let isHas = false
+            result.map((rEle) =>{
+                if(rEle.description === bEle.description){
+                    isHas = true
+                }
+            })
+            if(!isHas){
+                result.push(bEle)
+            }
+        })
+
+        return result
+    }
+
+    useEffect(() =>{
+        getNews()
+    }, [])
+
+    return (
+        <div className={classes.box}>
+            <Article />
+            {article.map((ele) => { return <NewsCont data={ele} key={uuidv4()}/>})}
+        </div>
+    )
+}
+
+export default News

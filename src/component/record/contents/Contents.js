@@ -4,6 +4,8 @@ import Game from "./Game";
 import moment from "moment";
 import classes from "./Contents.module.css"
 import {leagueActions} from "../../../store/league-slice";
+import Schedule from "../Schedule";
+import Record from "../Record";
 
 function Contents(){
     const [data, setData ] = useState([])
@@ -53,7 +55,10 @@ function Contents(){
     }, [league, date]);
 
     return (
-        <div style={{color:"white", height:"100%"}}>
+        <div className={classes.box}>
+            {/*<div className={classes.record}><Record/></div>*/}
+            <Record />
+
             {!loading ? <Game datas={data} times={times}/> : <div className={classes.loading}><img src={"/image/loading.gif"}/></div>}
         </div>
     )

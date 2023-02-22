@@ -8,3 +8,10 @@
 .loading > img{
     width: 40px;
 }
+
+.box{
+    color: white;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+}

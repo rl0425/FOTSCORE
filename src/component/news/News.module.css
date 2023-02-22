@@ -1,0 +1,8 @@
+.box{
+    color: rgb(255, 255, 255);
+    width: 100%;
+    min-height: 68%;
+    height: 68%;
+    min-width: 100%;
+    overflow: scroll;
+}

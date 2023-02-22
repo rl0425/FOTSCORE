@@ -3,6 +3,7 @@
 }
 
 .background{
+    position: relative;
     background: #000000;
 }
 
@@ -21,8 +22,8 @@
 }
 
 .body{
-    height: calc(var(--vh, 1vh) * 100 - 287px);
-    min-height: calc(var(--vh, 1vh) * 100 - 287px);
+    height: calc(var(--vh, 1vh) * 100 - 155px);
+    min-height: calc(var(--vh, 1vh) * 100 - 155px);
     box-sizing: border-box;
     overflow: scroll;
 }

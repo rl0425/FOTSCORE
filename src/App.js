@@ -1,5 +1,6 @@
 import Main from "./component/main/Main";
 import {useEffect} from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 function App() {
 
@@ -13,8 +14,7 @@ function App() {
   });
 
   return (
-      // <div><span>ss</span></div>
-    <Main />
+      <Main />
   );
 }
 

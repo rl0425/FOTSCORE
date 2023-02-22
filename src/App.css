@@ -1,6 +1,11 @@
 @font-face {
     font-family: "eng_bold";
-    src: url("./fonts/eng_bold_ttf");
+    src: url("./fonts/eng_bold.ttf");
+}
+
+@font-face {
+    font-family: "Koulen";
+    src: url("./fonts/Koulen.ttf");
 }
 
 body {
