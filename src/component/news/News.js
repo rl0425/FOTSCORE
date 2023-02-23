@@ -12,6 +12,7 @@ function News(){
         const esp = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/news').then((res) => res.json())
         const ger = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/news').then((res) => res.json())
         const ita = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/news').then((res) => res.json())
+
         // const asd = await fetch(epl.articles[0].links.api.news.href).then((res) => res.json())
 
         setArticle(dataStructure([...epl.articles , ...esp.articles, ...ger.articles, ...ita.articles]))
