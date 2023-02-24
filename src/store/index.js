@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import leagueSlice from './league-slice';
-import cartSlice from './cart-slice';
+import settingSlice from './setting-slice';
 
 const store = configureStore({
-  reducer: { league: leagueSlice.reducer, cart: cartSlice.reducer },
+  reducer: { league: leagueSlice.reducer, setting: settingSlice.reducer },
   middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false })
 });
 

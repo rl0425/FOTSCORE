@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 function Game(props){
     return (
-        <div style={{height:"100%", minHeight:"100%"}}>
+        <div className={classes.box}>
             {props.times.length > 0 ? props.times.map((time) => {
                 return (
                     <div key={time}>

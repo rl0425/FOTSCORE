@@ -16,3 +16,7 @@
     color: #ffffff;
     font-size: 14px;
 }
+
+.contents.active{
+    color: #0098fe;
+}

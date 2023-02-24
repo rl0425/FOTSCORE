@@ -3,7 +3,7 @@
 }
 
 .background{
-    position: relative;
+    /*position: relative;*/
     background: #000000;
 }
 
@@ -22,10 +22,14 @@
 }
 
 .body{
+    display: flex;
     height: calc(var(--vh, 1vh) * 100 - 155px);
     min-height: calc(var(--vh, 1vh) * 100 - 155px);
+    max-height: calc(var(--vh, 1vh) * 100 - 155px);
     box-sizing: border-box;
+    position: relative;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .foot{

@@ -4,7 +4,7 @@ import Contents from "./contents/Contents"
 
 function Record(){
     return (
-        <div>
+        <div style={{height:"112px", position:"absolute", width:"100%"}}>
             <League />
             <Schedule />
         </div>

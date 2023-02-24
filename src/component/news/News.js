@@ -3,10 +3,13 @@ import NewsCont from "./contents/NewsCont";
 import {v4 as uuidv4} from "uuid";
 import Article from "./Article";
 import classes from "./News.module.css"
+import {useSelector} from "react-redux";
 
 function News(){
-
     const [article, setArticle] = useState([])
+    const [isLoading, setLoading] = useState(false)
+    const active = useSelector((state) => state.setting.page)
+
     async function getNews(){
         const epl = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/news').then((res) => res.json())
         const esp = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/news').then((res) => res.json())
@@ -16,6 +19,7 @@ function News(){
         // const asd = await fetch(epl.articles[0].links.api.news.href).then((res) => res.json())
 
         setArticle(dataStructure([...epl.articles , ...esp.articles, ...ger.articles, ...ita.articles]))
+        setLoading(true)
     }
 
     function dataStructure(data){
@@ -42,10 +46,18 @@ function News(){
     }, [])
 
     return (
-        <div className={classes.box}>
-            <Article />
-            {article.map((ele) => { return <NewsCont data={ele} key={uuidv4()}/>})}
+        <div>
+            {
+            !isLoading ? <div className={classes.loading}><img src={"/image/loading.gif"}/></div> :
+                <div className={active === "news" ? classes.box : classes.unBox}>
+                    <Article/>
+                    {article.map((ele) => {
+                        return <NewsCont data={ele} key={uuidv4()}/>
+                    })}
+                </div>
+            }
         </div>
+
     )
 }
 

@@ -1,5 +1,5 @@
 import { uiActions } from './league-slice';
-import { cartActions } from './cart-slice';
+import { cartActions } from './setting-slice';
 
 export const fetchCartData = () => {
   return async (dispatch) => {
