@@ -1,44 +1,46 @@
 import {useEffect, useState} from "react";
 import classes from "./Table.module.css";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import League from "../record/League";
 import Teams from "./Teams";
 import {v4 as uuidv4} from "uuid";
+import {leagueActions} from "../../store/league-slice";
 
 function Table(){
     const active = useSelector((state) => state.setting.page)
-    const [isLoading, setLoading] = useState(true)
+    const league = useSelector((state) => state.league.rankLink)
+    const loading = useSelector((state) => state.league.rankLoading);
     const [data, setData] = useState([])
+    const dispatch = useDispatch()
 
     const getData = async () => {
-        const temp = await fetch("https://site.api.espn.com/apis/v2/sports/soccer/eng.1/standings").then((res) => res.json())
-        console.log("tmep = ", temp.children[0].standings.entries)
+        const temp = await fetch(`https://site.api.espn.com/apis/v2/sports/soccer/${league}/standings`).then((res) => res.json())
+
         setData(temp.children[0].standings.entries)
-        setLoading(false)
+        dispatch(leagueActions.changeRankLoading({loading:false}))
     }
 
     useEffect(() =>{
         getData()
-    }, [])
+    }, [league])
 
     return (
         <div className={active === "team" ? classes.box : classes.unBox}>
-            <League />
-            {isLoading ? <div>로딩</div> :
-                <div>
-                    <div className={classes.tableHead}>
-                        <div className={classes.rank}><span>순위</span></div>
-                        <div className={classes.team}><span>팀</span></div>
-                        <div className={classes.round}><span>경기 수</span></div>
-                        <div className={classes.score}><span>승점</span></div>
-                        <div className={classes.win}><span>승</span></div>
-                        <div className={classes.draw}><span>무</span></div>
-                        <div className={classes.defeat}><span>패</span></div>
-                    </div>
-                    {data.map((ele) => {
-                        return <Teams data={ele} key={uuidv4()}/>
+            <League type={"rank"}/>
+            <div className={classes.tableHead}>
+                <div className={classes.rank}><span>순위</span></div>
+                <div className={classes.team}><span>팀</span></div>
+                <div className={classes.round}><span>경기 수</span></div>
+                <div className={classes.score}><span>승점</span></div>
+                <div className={classes.win}><span>승</span></div>
+                <div className={classes.draw}><span>무</span></div>
+                <div className={classes.defeat}><span>패</span></div>
+            </div>
+            {loading ? <div className={classes.loading}><img src={"/image/loading.gif"}/></div> :
+                <div className={classes.tableMain}>
+                    {data.map((ele, index) => {
+                        return <Teams data={ele} index={index} key={uuidv4()}/>
                     })}
-
                 </div>
             }
         </div>

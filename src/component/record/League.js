@@ -29,10 +29,10 @@ function League(props){
                 <div className={click ? classes.arrow : classes.noArrow}></div>
             </div>
             <div className={click ? classes.selectBox : classes.noSelect}>
-                {leagueList.includes("premier") ? <LeagueDetail onCilck={leagueCilckEvt} league={"premier"} link={"eng.1"} /> : "" }
-                {leagueList.includes("laliga") ? <LeagueDetail onCilck={leagueCilckEvt} league={"laliga"} link={"esp.1"}/> : "" }
-                {leagueList.includes("bundesliga") ? <LeagueDetail onCilck={leagueCilckEvt} league={"bundesliga"} link={"ger.1"}/> : ""}
-                {leagueList.includes("seriea") ? <LeagueDetail onCilck={leagueCilckEvt} league={"seriea"} link={"ita.1"} /> : ""}
+                {leagueList.includes("premier") ? <LeagueDetail onCilck={leagueCilckEvt} league={"premier"} link={"eng.1"} type={props.type}/> : "" }
+                {leagueList.includes("laliga") ? <LeagueDetail onCilck={leagueCilckEvt} league={"laliga"} link={"esp.1"} type={props.type}/> : "" }
+                {leagueList.includes("bundesliga") ? <LeagueDetail onCilck={leagueCilckEvt} league={"bundesliga"} link={"ger.1"} type={props.type}/> : ""}
+                {leagueList.includes("seriea") ? <LeagueDetail onCilck={leagueCilckEvt} league={"seriea"} link={"ita.1"} type={props.type}/> : ""}
             </div>
         </div>
     )

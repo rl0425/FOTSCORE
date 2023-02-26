@@ -4,7 +4,6 @@ import classes from "./Main.module.css"
 import Record from "../record/Record";
 import Foot from "../foot/Foot";
 import Contents from "../record/contents/Contents";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Category from "./Category";
 import News from "../news/News";
 import Table from "../table/Table";

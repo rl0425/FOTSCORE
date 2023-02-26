@@ -23,12 +23,12 @@
 }
 
 .loading{
-    position: absolute;
+    /*position: absolute;*/
     left:100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70%;
+    height: 86%;
 }
 
 .loading > img{

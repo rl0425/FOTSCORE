@@ -18,14 +18,12 @@ function Contents(){
     const dispatch = useDispatch();
 
     const getData = async () => {
-        const dateForm = parseInt(moment("2023-02-12").subtract("d",2).format("YYYYMMDD"))
+        const dateForm = parseInt(moment(new Date()).subtract("d",2).format("YYYYMMDD"))
         const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${league}/scoreboard?&dates=${dateForm}-${dateForm+2}`).then((res) => res.json());
-
         const event = res.events.filter((data) =>{
-            // if(new Date(date).getDate() === new Date(data.date).getDate()) {
-            //     return data
-            // }
-            return data
+            if(new Date(date).getDate() === new Date(data.date).getDate()) {
+                return data
+            }
         })
 
         setData(event)
@@ -55,11 +53,8 @@ function Contents(){
 
     return (
         <div className={classes.box}>
-            {/*<div className={classes.record}><Record/></div>*/}
             <Record />
-
             {!loading ? <Game datas={data} times={times}/> : <div className={classes.loading}><img src={"/image/loading.gif"}/></div>}
-
         </div>
     )
 }

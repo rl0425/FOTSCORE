@@ -8,7 +8,13 @@ function LeagueDetail(props){
 
     function leagueClick(){
         props.onCilck(props.league)
-        dispatch(leagueActions.changeSet({link:props.link, date:moment(new Date()), choiceDate:"today"}))
+
+        if(props.type === "record") {
+            dispatch(leagueActions.changeSet({link: props.link, date: moment(new Date()), choiceDate: "today"}))
+        }
+        else {
+            dispatch(leagueActions.changeRank({rankLink: props.link, rankLoading: true}))
+        }
     }
 
     return (

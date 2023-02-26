@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
 import NewsCont from "./contents/NewsCont";
 import {v4 as uuidv4} from "uuid";
 import Article from "./Article";
 import classes from "./News.module.css"
-import {useSelector} from "react-redux";
 
 function News(){
     const [article, setArticle] = useState([])
-    const [isLoading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState(true)
     const active = useSelector((state) => state.setting.page)
 
     async function getNews(){
@@ -19,7 +19,7 @@ function News(){
         // const asd = await fetch(epl.articles[0].links.api.news.href).then((res) => res.json())
 
         setArticle(dataStructure([...epl.articles , ...esp.articles, ...ger.articles, ...ita.articles]))
-        setLoading(true)
+        setLoading(false)
     }
 
     function dataStructure(data){
@@ -46,10 +46,10 @@ function News(){
     }, [])
 
     return (
-        <div>
+        <div className={active === "news" ? classes.box : classes.unBox}>
             {
-            !isLoading ? <div className={classes.loading}><img src={"/image/loading.gif"}/></div> :
-                <div className={active === "news" ? classes.box : classes.unBox}>
+            isLoading ? <div className={classes.loading}><img src={"/image/loading.gif"}/></div> :
+                <div>
                     <Article/>
                     {article.map((ele) => {
                         return <NewsCont data={ele} key={uuidv4()}/>

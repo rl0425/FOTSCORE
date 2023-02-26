@@ -1,4 +1,3 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Contents from "../record/contents/Contents";
 import News from "../news/News";
 import classes from "./Category.module.css"
@@ -11,13 +10,6 @@ function Category(){
         <div className={active === "record" ? classes.box : classes.unBox}>
             <Contents />
         </div>
-        // <BrowserRouter>
-        //     <Routes>
-        //
-        //         <Route path="/" element={<Contents />} />
-        //         <Route path="/news" element={<News />} />
-        //     </Routes>
-        // </BrowserRouter>
     )
 }
 
