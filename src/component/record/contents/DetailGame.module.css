@@ -84,13 +84,14 @@
     font-size: 12px;
     max-height: 300vw;
     opacity: 1;
-    transition: all 0.4s linear;
+    transition: all 1.2s linear;
 }
 
 .detailDivNone{
     font-size: 12px;
-    max-height: 0;
+    max-height: 0vw;
     opacity: 0;
+    transition: all 0.4s linear;
 }
 
 .detailBox{
@@ -137,4 +138,14 @@
     width: 33%;
     box-sizing: border-box;
     color: #0098fe;
+}
+
+.box .arrowDefault{
+    transform: rotate(0deg);
+    transition: all 0.2s ease-in-out;
+}
+
+.box .arrowClicked{
+    transform: rotate(90deg);
+    transition: all 0.2s ease-in-out;
 }

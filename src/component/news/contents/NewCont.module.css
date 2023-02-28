@@ -17,7 +17,7 @@
     color: #ffffff;
 }
 
-.imgBox{
+.imgBox, .noImgBox{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,6 +34,10 @@
     position: absolute;
     top: -20px;
     /*height: 100%;*/
+}
+
+.noImgBox img{
+    width: 70px;
 }
 
 .contBox{

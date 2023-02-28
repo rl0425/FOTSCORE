@@ -25,7 +25,7 @@ function League(props){
     return (
         <div className={classes.leagueBox}>
             <div onClick={menuClickEvt} className={`${classes.box} ${selectLeague === "premier" ? classes.premier : selectLeague === "laliga" ? classes.laliga : selectLeague === "bundesliga" ? classes.bundesliga : classes.seriea}`}>
-                <div className={classes.selected}><img src={`/image/${selectLeague}.png`}/></div>
+                <div className={selectLeague === "bundesliga" ? classes.bundesSelected : classes.selected}><img src={`/image/${selectLeague}.png`}/></div>
                 <div className={click ? classes.arrow : classes.noArrow}></div>
             </div>
             <div className={click ? classes.selectBox : classes.noSelect}>

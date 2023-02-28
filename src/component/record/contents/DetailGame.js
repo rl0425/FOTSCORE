@@ -15,7 +15,6 @@ function DetailGame(props) {
     };
 
     const summaryClick = () => {
-        console.log("data.links[0] =", data.links[0])
         window.open(data.links[0].href, '_blank')
     }
 
@@ -64,7 +63,7 @@ function DetailGame(props) {
                 <div className={classes.content} style={{width: "33%", justifyContent: "flex-end"}}>
                     <span className={team[1].winner ? classes.winner : team[0].winner ? classes.loser : classes.draw} style={{marginRight: "4px", textAlign: "right"}}>{team[1].team.shortDisplayName}</span>
                     <img className={classes.teamLogo} src={team[1].team.logo} style={{paddingRight: "12px"}}/>
-                    <div onClick={handleClick} className={classes.detail}  style={{paddingRight: "12px"}}><img src={"/image/arrow.png"} /></div>
+                    <div onClick={handleClick} className={classes.detail}  style={{paddingRight: "12px", outline:"none"}}><img className={clicked ? classes.arrowDefault : classes.arrowClicked} src={"/image/arrow.png"} /></div>
                 </div>
             </div>
             <div className={clicked ? classes.detailDiv : classes.detailDivNone}>

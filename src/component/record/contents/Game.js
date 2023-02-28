@@ -7,8 +7,8 @@ function Game(props){
         <div className={classes.box}>
             {props.times.length > 0 ? props.times.map((time) => {
                 return (
-                    <div key={time}>
-                        <div className={classes.timeBox}><div><span>{time}</span></div></div>
+                    <div style={{marginBottom:"12px"}} key={time}>
+                        <div className={classes.timeBox}><div className={classes.timeDetail}><span>{time}</span></div></div>
                         {
                             props.datas.map((data,index) => {
                                 const propsDate = new Date(data.date)

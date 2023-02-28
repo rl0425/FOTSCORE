@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%;
     min-height: 48px;
+    margin-bottom: 12px;
 }
 
 .noGame{
@@ -25,4 +26,16 @@
     min-height:calc(100% - 112px);
     margin-top:112px;
     overflow:scroll;
+}
+
+.timeDetail{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 74px;
+    height: 26px;
+    background: #1C1B1B;
+    border-radius: 24px;
+    border: 1px solid #4b48489e;
+    font-size: 13px;
 }
