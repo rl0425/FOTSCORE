@@ -60,6 +60,12 @@
 
 <br></br>
 
+## 회고록
+
+> <a href="https://velog.io/@rl0425/FOTSCORE-%ED%9A%8C%EA%B3%A0%EB%A1%9D">velog</a>
+
+<br></br>
+
 ## 개발자
 
 > Front-end 1
