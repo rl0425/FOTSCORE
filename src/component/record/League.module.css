@@ -87,6 +87,7 @@
     transition: height, 0.1s linear;
     transition: opacity, 0.3s linear;
     opacity: 1;
+    z-index: 2;
 }
 
 .selectBox > div{
@@ -99,7 +100,7 @@
 .selectBox img{
     transition: all 0.3s ease-in-out 0.2s;
     opacity: 1;
-    width: 132px;
+    width: 106px;
 }
 
 .selectBox .lagliga{

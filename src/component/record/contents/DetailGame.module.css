@@ -84,13 +84,14 @@
     font-size: 12px;
     max-height: 300vw;
     opacity: 1;
-    transition: all 1.2s linear;
+    /*transition: all 1.2s ease;*/
+    overflow: hidden;
 }
 
 .detailDivNone{
     font-size: 12px;
     max-height: 0vw;
-    opacity: 0;
+    /*opacity: 0;*/
     transition: all 0.4s linear;
 }
 
