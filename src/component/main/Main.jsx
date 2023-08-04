@@ -10,15 +10,15 @@ import Table from "../table/Table";
 
 function Main(){
     return (
-        <div className={`${classes.font} ${classes.background}`}>
-            <div className={classes.head}><Head/></div>
-            <div className={classes.body}>
+        <main className={`${classes.font} ${classes.background}`}>
+            <head className={classes.head}><Head/></head>
+            <body className={classes.body}>
                 <Category />
                 <News />
                 <Table />
-            </div>
-            <div className={classes.foot}><Foot/></div>
-        </div>
+            </body>
+            <footer className={classes.foot}><Foot/></footer>
+        </main>
     )
 }
 

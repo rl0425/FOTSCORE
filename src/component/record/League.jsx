@@ -23,7 +23,7 @@ function League(props){
     }
 
     return (
-        <div className={classes.leagueBox}>
+        <article className={classes.leagueBox}>
             <div onClick={menuClickEvt} className={`${classes.box} ${selectLeague === "premier" ? classes.premier : selectLeague === "laliga" ? classes.laliga : selectLeague === "bundesliga" ? classes.bundesliga : classes.seriea}`}>
                 <div className={selectLeague === "bundesliga" ? classes.bundesSelected : classes.selected}><img src={`/image/${selectLeague}.png`}/></div>
                 <div className={click ? classes.arrow : classes.noArrow}></div>
@@ -34,7 +34,7 @@ function League(props){
                 {leagueList.includes("bundesliga") ? <LeagueDetail onCilck={leagueCilckEvt} league={"bundesliga"} link={"ger.1"} type={props.type}/> : ""}
                 {leagueList.includes("seriea") ? <LeagueDetail onCilck={leagueCilckEvt} league={"seriea"} link={"ita.1"} type={props.type}/> : ""}
             </div>
-        </div>
+        </article>
     )
 }
 

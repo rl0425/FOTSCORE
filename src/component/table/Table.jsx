@@ -25,7 +25,7 @@ function Table(){
     }, [league])
 
     return (
-        <div className={active === "team" ? classes.box : classes.unBox}>
+        <section className={active === "team" ? classes.box : classes.unBox}>
             <League type={"rank"}/>
             <div className={classes.tableHead}>
                 <div className={classes.rank}><span>순위</span></div>
@@ -43,7 +43,7 @@ function Table(){
                     })}
                 </div>
             }
-        </div>
+        </section>
     )
 }
 

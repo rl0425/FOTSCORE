@@ -7,9 +7,9 @@ function Category(){
     const active = useSelector((state) => state.setting.page)
 
     return (
-        <div className={active === "record" ? classes.box : classes.unBox}>
+        <section className={active === "record" ? classes.box : classes.unBox}>
             <Contents />
-        </div>
+        </section>
     )
 }
 

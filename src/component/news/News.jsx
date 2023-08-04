@@ -46,7 +46,7 @@ function News(){
     }, [])
 
     return (
-        <div className={active === "news" ? classes.box : classes.unBox}>
+        <section className={active === "news" ? classes.box : classes.unBox}>
             {
             isLoading ? <div className={classes.loading}><img src={"/image/loading.gif"}/></div> :
                 <div>
@@ -56,7 +56,7 @@ function News(){
                     })}
                 </div>
             }
-        </div>
+        </section>
 
     )
 }
