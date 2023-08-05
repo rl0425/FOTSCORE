@@ -13,11 +13,11 @@ function Foot(){
     const teamBtn = () => { dispatch(settingActions.changePage({page:"team"}))}
 
     return(
-        <div className={classes.box}>
-            <div onClick={recordBtn} className={active === "record" ? `${classes.contents} ${classes.active}` : classes.contents}>기록</div>
-            <div onClick={newsBtn} className={active === "news" ? `${classes.contents} ${classes.active}` : classes.contents}>뉴스</div>
-            <div onClick={teamBtn} className={active === "team" ? `${classes.contents} ${classes.active}` : classes.contents}>순위</div>
-        </div>
+        <aside className={classes.box}>
+            <section onClick={recordBtn} className={active === "record" ? `${classes.contents} ${classes.active}` : classes.contents}>기록</section>
+            <section onClick={newsBtn} className={active === "news" ? `${classes.contents} ${classes.active}` : classes.contents}>뉴스</section>
+            <section onClick={teamBtn} className={active === "team" ? `${classes.contents} ${classes.active}` : classes.contents}>순위</section>
+        </aside>
     )
 }
 

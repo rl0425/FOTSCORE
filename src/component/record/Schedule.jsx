@@ -9,8 +9,8 @@ function Schedule(){
     const choiceDate = useSelector((state) => state.league.choiceDate);
 
     const changeLastDay = () => { dispatch(leagueActions.changeDate({date:moment(new Date()).subtract("d", 1), choiceDate:"last"}))}
-    const changeToday = () => {dispatch(leagueActions.changeDate({date:moment(new Date()), choiceDate:"today"}))}
-    const changeTomorrow = () => {dispatch(leagueActions.changeDate({date:moment(new Date()).add("d", 1), choiceDate:"tomorrow"}))}
+    const changeToday = () => { dispatch(leagueActions.changeDate({date:moment(new Date()), choiceDate:"today"}))}
+    const changeTomorrow = () => { dispatch(leagueActions.changeDate({date:moment(new Date()).add("d", 1), choiceDate:"tomorrow"}))}
 
     return (
         <article className={classes.box}>
