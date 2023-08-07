@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import Game from "./Game";
 import moment from "moment";
@@ -33,7 +33,7 @@ function Contents(){
         dispatch(leagueActions.changeLoading());
     }
 
-    const getTime = (evt) => {
+    const getTime = useCallback((evt) => {
         const timeSet = []
 
         if(evt) {
@@ -47,7 +47,7 @@ function Contents(){
             })
         }
         setTime(timeSet)
-    }
+    }, [])
 
     useEffect(() => {
         getData();
