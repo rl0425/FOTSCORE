@@ -5,6 +5,13 @@ import {v4 as uuidv4} from "uuid";
 import Article from "./Article";
 import classes from "./News.module.css"
 
+function dataStructure(data){
+    const sorted = data.sort((a,b) => new Date(b.lastModified) - new Date(a.lastModified))
+    return sorted.filter((bEle, index, self) =>
+        index === self.findIndex((rEle) => rEle.description === bEle.description)
+    );
+}
+
 function News(){
     const [article, setArticle] = useState([])
     const [isLoading, setLoading] = useState(true)
@@ -16,29 +23,8 @@ function News(){
         const ger = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/news').then((res) => res.json())
         const ita = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/news').then((res) => res.json())
 
-        // const asd = await fetch(epl.articles[0].links.api.news.href).then((res) => res.json())
-
         setArticle(dataStructure([...epl.articles , ...esp.articles, ...ger.articles, ...ita.articles]))
         setLoading(false)
-    }
-
-    function dataStructure(data){
-        const sorted = data.sort((a,b) => new Date(b.lastModified) - new Date(a.lastModified))
-        const result = []
-
-        sorted.map((bEle) =>{
-            let isHas = false
-            result.map((rEle) =>{
-                if(rEle.description === bEle.description){
-                    isHas = true
-                }
-            })
-            if(!isHas){
-                result.push(bEle)
-            }
-        })
-
-        return result
     }
 
     useEffect(() =>{

@@ -19,13 +19,11 @@ function Contents(){
 
     const getData = async () => {
         const dateForm = parseInt(moment(new Date()).subtract("d",2).format("YYYYMMDD"))
-        // const dateForm = parseInt(moment('2023-02-15').subtract("d",2).format("YYYYMMDD"))
         const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${league}/scoreboard?&dates=${dateForm}-${dateForm+2}`).then((res) => res.json());
         const event = res.events.filter((data) =>{
             if(new Date(date).getDate() === new Date(data.date).getDate()) {
                 return data
             }
-            // return data
         })
 
         setData(event)
