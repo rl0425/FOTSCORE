@@ -1,9 +1,11 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import NewsCont from "./contents/NewsCont";
 import {v4 as uuidv4} from "uuid";
+
+import NewsCont from "./contents/NewsCont";
 import Article from "./Article";
 import classes from "./News.module.css"
+
 
 function dataStructure(data){
     const sorted = data.sort((a,b) => new Date(b.lastModified) - new Date(a.lastModified))
@@ -36,7 +38,6 @@ function News(){
             {
             isLoading ? <div className={classes.loading}><img src={"/image/loading.gif"}/></div> :
                 <div>
-                    <Article/>
                     {article.map((ele) => {
                         return <NewsCont data={ele} key={uuidv4()}/>
                     })}
